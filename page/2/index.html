@@ -186,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:13:45 / Modified: 12:17:15" itemprop="dateCreated datePublished" datetime="2020-04-14T12:13:45+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:13:45" itemprop="dateCreated datePublished" datetime="2020-04-14T12:13:45+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:22" itemprop="dateModified" datetime="2020-04-16T11:06:22+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -215,7 +221,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Firstly, notice that we only care about the closest tower to each building. The answer is simply the maximum of the distances from each building to their closest tower.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Firstly, notice that we only care about the closest tower to each building. The answer is simply the maximum of the distances from each building to their closest tower.</p>
 <p>The closest tower can either be on the left or the right of the building. We can simply use the STL’s <code>upper_bound</code> to find the 2 towers on either side of the building.</p>
 <p>We can use 2 pointers to bring the complexity down to $O(N)$ but this isn’t necessary.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(N log N)$</p>
@@ -262,10 +270,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:05:30 / Modified: 12:07:41" itemprop="dateCreated datePublished" datetime="2020-04-14T12:05:30+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:05:30" itemprop="dateCreated datePublished" datetime="2020-04-14T12:05:30+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:18" itemprop="dateModified" datetime="2020-04-16T11:06:18+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -291,7 +305,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>First, sort each ledge by height. Let $dp[i]$ be the number of ways to get to position $i$ after some moves.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>First, sort each ledge by height. Let $dp[i]$ be the number of ways to get to position $i$ after some moves.</p>
 <p>Clearly,</p>
 <p>$$dp[i] = \sum_{j = i - k}^{i + k}[h[j] &gt; h[i]] \cdot dp[j]$$</p>
 <p>To find this quickly, we can use a Fenwick tree with point queries and range updates.</p>
@@ -341,10 +357,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:08:18 / Modified: 12:10:21" itemprop="dateCreated datePublished" datetime="2020-04-14T12:08:18+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:08:18" itemprop="dateCreated datePublished" datetime="2020-04-14T12:08:18+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:15" itemprop="dateModified" datetime="2020-04-16T11:06:15+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -370,7 +392,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Firstly, a rhombus is inconvenient, so apply the transformation $(x, y) \rightarrow (x + y, x - y)$ to rotate everything by 45 degrees. Manhattan distance becomes Chebyshev distance and the query is on a square now.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Firstly, a rhombus is inconvenient, so apply the transformation $(x, y) \rightarrow (x + y, x - y)$ to rotate everything by 45 degrees. Manhattan distance becomes Chebyshev distance and the query is on a square now.</p>
 <p>Next, notice for each star $i$, we only need to consider “critical stars”. These are the 4 stars in each quadrant of star $i$’s query square that have lowest discovery time. This is because if those stars are connected to $i$, so is every other star in the 4 quadrants.</p>
 <p>We can use a segment tree and a line sweep to find these critical stars.</p>
 <p>After that, we simply use DSU to create connected components and so we can easily query each component’s size.</p>
@@ -419,10 +443,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:10:43 / Modified: 12:11:21" itemprop="dateCreated datePublished" datetime="2020-04-14T12:10:43+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:10:43" itemprop="dateCreated datePublished" datetime="2020-04-14T12:10:43+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:09" itemprop="dateModified" datetime="2020-04-16T11:06:09+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -448,7 +478,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is just an ordinary BFS problem but each state also stores the number of dynamite sticks left.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is just an ordinary BFS problem but each state also stores the number of dynamite sticks left.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(NMK)$</p>
 <p>Memory: $O(NMK)$</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i, x, y) for (int i = x; i &lt; y; i++)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">State</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, used;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> cave[<span class="number">500</span>][<span class="number">500</span>];</span><br><span class="line"><span class="keyword">int</span> visited[<span class="number">500</span>][<span class="number">500</span>][<span class="number">51</span>], dx[<span class="number">4</span>]&#123;<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>]&#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; start, dest;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n, m, k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    FOR(i, <span class="number">0</span>, n) FOR(j, <span class="number">0</span>, m) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; cave[i][j];</span><br><span class="line">        <span class="keyword">if</span> (cave[i][j] == <span class="string">'S'</span>) start = &#123;i, j&#125;;</span><br><span class="line">        <span class="keyword">if</span> (cave[i][j] == <span class="string">'E'</span>) dest = &#123;i, j&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">queue</span>&lt;State&gt; q;</span><br><span class="line">    q.push(&#123;start.first, start.second, <span class="number">0</span>&#125;);</span><br><span class="line">    visited[start.first][start.second][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.size()) &#123;</span><br><span class="line">        State curr = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        FOR(i, <span class="number">0</span>, <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> nx = curr.x + dx[i], ny = curr.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span> (nx &gt; <span class="number">-1</span> &amp;&amp; nx &lt; n &amp;&amp; ny &gt; <span class="number">-1</span> &amp;&amp; ny &lt; m) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cave[curr.x + dx[i]][curr.y + dy[i]] == <span class="string">'#'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (curr.used &lt; k &amp;&amp; !visited[nx][ny][curr.used + <span class="number">1</span>]) &#123;</span><br><span class="line">                        visited[nx][ny][curr.used + <span class="number">1</span>] = visited[curr.x][curr.y][curr.used] + <span class="number">1</span>;</span><br><span class="line">                        q.push(&#123;nx, ny, curr.used + <span class="number">1</span>&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!visited[nx][ny][curr.used]) &#123;</span><br><span class="line">                        visited[nx][ny][curr.used] = visited[curr.x][curr.y][curr.used] + <span class="number">1</span>;</span><br><span class="line">                        q.push(&#123;nx, ny, curr.used&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = INT_MAX;</span><br><span class="line">    FOR(i, <span class="number">0</span>, k + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (visited[dest.first][dest.second][i])</span><br><span class="line">            ans = min(ans, visited[dest.first][dest.second][i] - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ans == INT_MAX) <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -494,10 +526,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:17:50 / Modified: 12:42:38" itemprop="dateCreated datePublished" datetime="2020-04-14T12:17:50+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:17:50" itemprop="dateCreated datePublished" datetime="2020-04-14T12:17:50+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:03" itemprop="dateModified" datetime="2020-04-16T11:06:03+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -523,7 +561,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this</p>
 <p>First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively.</p>
 <p>Let $V_{tin_i} = w_i$ and $V_{tout_i} = -w_i$. Notice how $\sum_{i = tin_x}^{tin_y} V_i = \text{Sum of } w_i \text{ on the path } x \rightarrow y$.</p>
 <p>Now, split the flattened tree up into $\sqrt{N}$ blocks of size $\sqrt{N}$. In each block, store the sum of $V_i$’s in that block and a map of how many times each $\sum_{j = 0}^i V_{\text{Block begin } + j}$ appears.</p>
@@ -590,10 +630,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:12:02 / Modified: 12:12:24" itemprop="dateCreated datePublished" datetime="2020-04-14T12:12:02+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:12:02" itemprop="dateCreated datePublished" datetime="2020-04-14T12:12:02+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:05:55" itemprop="dateModified" datetime="2020-04-16T11:05:55+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -619,7 +665,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>For each road, if you can reach $A$ from node 1 but not $B$, then you can build the highway.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>For each road, if you can reach $A$ from node 1 but not $B$, then you can build the highway.</p>
 <p>To keep track of connectivity, use DSU.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(N + M)$</p>
 <p>Memory: $O(N)$</p>

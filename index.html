@@ -186,10 +186,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:26:19 / Modified: 11:49:08" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:19+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:26:19" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:19+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:53" itemprop="dateModified" datetime="2020-04-16T11:06:53+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -215,7 +221,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Simply find the minimum distance from each room to $A$ and $B$ respectively using a BFS. The room with the minimum $\max(\text{Dist to A}, \text{Dist to B})$ will be the answer.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Simply find the minimum distance from each room to $A$ and $B$ respectively using a BFS. The room with the minimum $\max(\text{Dist to A}, \text{Dist to B})$ will be the answer.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(V + E)$</p>
 <p>Memory: $O(V + E)$</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i, x, y) for (int i = x; i &lt; y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; graph[<span class="number">10001</span>];</span><br><span class="line"><span class="keyword">int</span> visited[<span class="number">10001</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios_base::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> n, m, a, b;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    FOR(i, <span class="number">0</span>, m) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        graph[u].push_back(v);</span><br><span class="line">        graph[v].push_back(u);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    q.push(a);</span><br><span class="line">    visited[a][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.size()) &#123;</span><br><span class="line">        <span class="keyword">int</span> curr = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : graph[curr]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i][<span class="number">0</span>]) &#123;</span><br><span class="line">                visited[i][<span class="number">0</span>] = visited[curr][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">                q.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    q.push(b);</span><br><span class="line">    visited[b][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.size()) &#123;</span><br><span class="line">        <span class="keyword">int</span> curr = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : graph[curr]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i][<span class="number">1</span>]) &#123;</span><br><span class="line">                visited[i][<span class="number">1</span>] = visited[curr][<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                q.push(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = INT_MAX, room = <span class="number">-1</span>;</span><br><span class="line">    FOR(i, <span class="number">1</span>, n + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (visited[i][<span class="number">0</span>] &amp;&amp; visited[i][<span class="number">1</span>]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ans &gt; max(visited[i][<span class="number">0</span>] - <span class="number">1</span>, visited[i][<span class="number">1</span>] - <span class="number">1</span>)) ans = max(visited[i][<span class="number">0</span>] - <span class="number">1</span>, visited[i][<span class="number">1</span>] - <span class="number">1</span>), room = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; room;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -261,10 +269,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:26:13 / Modified: 12:04:22" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:13+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:26:13" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:13+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:49" itemprop="dateModified" datetime="2020-04-16T11:06:49+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -290,7 +304,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Binary search for minimum X where (through the principle of inclusion-exclusion — add the count of all $t_i$ multiples in range, subtract the count of all pairwise LCM of $t_i$ multiples in range, add the count of all triplewise LCM of $t_i$ multiples in range etc.) we find exactly K divisible numbers.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Binary search for minimum X where (through the principle of inclusion-exclusion — add the count of all $t_i$ multiples in range, subtract the count of all pairwise LCM of $t_i$ multiples in range, add the count of all triplewise LCM of $t_i$ multiples in range etc.) we find exactly K divisible numbers.</p>
 <p>To efficiently find the LCMs, we use bitmask DP and preprocess the LCMs.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(2^N  \log{N})$</p>
 <p>Memory: $O(2^N)$</p>
@@ -337,10 +353,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:26:07 / Modified: 11:46:50" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:07+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:26:07" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:07+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:46" itemprop="dateModified" datetime="2020-04-16T11:06:46+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -366,7 +388,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use DSU and a line sweep to solve this problem.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use DSU and a line sweep to solve this problem.</p>
 <p>Firstly, notice that we can form connected components from the platforms. The frog can reach any 2 platforms that are in the same component.</p>
 <p>DSU is the perfect data structure for this and we can line sweep to find which platforms are reachable from which.</p>
 <p>Next, notice that for platform $A$, if $C_y &gt; B_y &gt; A_y$ for platforms $B$ and $C$ that overlap with $A$, if the from can reach $C$ from $A$, it can also reach $B$ from $A$.</p>
@@ -416,10 +440,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:26:02 / Modified: 11:47:24" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:02+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:26:02" itemprop="dateCreated datePublished" datetime="2020-04-14T11:26:02+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:44" itemprop="dateModified" datetime="2020-04-16T11:06:44+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -445,7 +475,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is a DP problem.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is a DP problem.</p>
 <p>Let $dp[i]$ be the minimum number of DNA strings we use to construct the word up to position $i$.</p>
 <p>$dp[i] = 2^{60}$ if it is not possible to make the word up to position $i$.</p>
 <p>The recurrence is as follows:</p>
@@ -496,10 +528,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:25:40 / Modified: 12:04:22" itemprop="dateCreated datePublished" datetime="2020-04-14T11:25:40+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:25:40" itemprop="dateCreated datePublished" datetime="2020-04-14T11:25:40+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:41" itemprop="dateModified" datetime="2020-04-16T11:06:41+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -525,7 +563,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>First, find the factors of $N$.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>First, find the factors of $N$.</p>
 <p>Next, notice that a solution is possible iff the upperbound of $B$ in the factors is greater or equal to the lowerbound of $A$ in the factors.</p>
 <p>We can then simply use a set to find this overlap and the answer will be $\frac{N}{\text{Upperbound of B}}$.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(\sqrt{N} + Q  \log{\sqrt{N}})$</p>
@@ -573,10 +613,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:25:30 / Modified: 11:54:12" itemprop="dateCreated datePublished" datetime="2020-04-14T11:25:30+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:25:30" itemprop="dateCreated datePublished" datetime="2020-04-14T11:25:30+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:38" itemprop="dateModified" datetime="2020-04-16T11:06:38+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -602,7 +648,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this problem.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this problem.</p>
 <p>First, keep track of how many blocks are being scanned at the moment. Let this number be $k$.</p>
 <p>If $k \leq \sqrt{N}$, simply find the minimum of the $k$ blocks being scanned.</p>
 <p>Otherwise, we expect the answer to be around $\sqrt{N}$ or less, since it is highly unlikely that it is greater than that (by the Birthday Paradox).</p>
@@ -652,10 +700,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:53:19 / Modified: 12:04:22" itemprop="dateCreated datePublished" datetime="2020-04-14T11:53:19+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:53:19" itemprop="dateCreated datePublished" datetime="2020-04-14T11:53:19+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:34" itemprop="dateModified" datetime="2020-04-16T11:06:34+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -681,7 +735,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>In this problem, we simply want to iterate until the minimum $i$ such that the sum of the number of stones in a rectangle with maximum Chebyshev distance $i$ satisfies the condition.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>In this problem, we simply want to iterate until the minimum $i$ such that the sum of the number of stones in a rectangle with maximum Chebyshev distance $i$ satisfies the condition.</p>
 <p>Since we want to know the number of stones in a rectangle and each update is a point update, an ideal data structure to use for this problem is a 2d Fenwick tree.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(QS  \log{N}  \log{M})$</p>
 <p>Memory: $O(NM)$</p>
@@ -728,10 +784,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:54:31 / Modified: 12:03:59" itemprop="dateCreated datePublished" datetime="2020-04-14T11:54:31+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:54:31" itemprop="dateCreated datePublished" datetime="2020-04-14T11:54:31+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:31" itemprop="dateModified" datetime="2020-04-16T11:06:31+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -757,7 +819,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Let $r_l$ be the maximum right $x$-coordinate if the left $x$-coordinate of the stadium is $l$. Notice how $r_l \geq r_{l - 1}$, since we never shrink the stadium side by more than 1.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Let $r_l$ be the maximum right $x$-coordinate if the left $x$-coordinate of the stadium is $l$. Notice how $r_l \geq r_{l - 1}$, since we never shrink the stadium side by more than 1.</p>
 <p>This means that we can use 2 pointers and a line sweep to find the maximum valid $r - l$.</p>
 <p>When we sweep, we mark all $y$-coordinates with trees in the current interval $(l, r)$ as occupied. $l$ and $r$ are thus valid if and only if the maximum number of consecutive unoccupied $y$-coordinates is at least $r - l$.</p>
 <p>We can use a segment tree to keep track of this, but we can actually just use a set from the STL</p>
@@ -806,10 +870,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:51:50 / Modified: 11:54:19" itemprop="dateCreated datePublished" datetime="2020-04-14T11:51:50+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:51:50" itemprop="dateCreated datePublished" datetime="2020-04-14T11:51:50+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:28" itemprop="dateModified" datetime="2020-04-16T11:06:28+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -835,7 +905,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is simply a rewording of the egg drop problem.</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>This is simply a rewording of the egg drop problem.</p>
 <p>We simply binary search for the point to cut and shrink the range.</p>
 <h2 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h2><p>Time: $O(N \log{N})$</p>
 <p>Memory: $O(1)$</p>
@@ -882,10 +954,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 11:50:57 / Modified: 11:54:23" itemprop="dateCreated datePublished" datetime="2020-04-14T11:50:57+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 11:50:57" itemprop="dateCreated datePublished" datetime="2020-04-14T11:50:57+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:25" itemprop="dateModified" datetime="2020-04-16T11:06:25+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -911,7 +989,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Consider the problem in reverse:</p>
+          <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Consider the problem in reverse:</p>
 <p>Instead of decreasing and multiplying $N$ by $A$, increase and divide $M$ by $A$.</p>
 <p>Since $N$ and $M$ must be integers at all points, this limits when we may divide by $A$.</p>
 <p>Simply keep increasing $M$ and then divide by $A$ as soon as $A$ divides $M$, which is optimal.</p>

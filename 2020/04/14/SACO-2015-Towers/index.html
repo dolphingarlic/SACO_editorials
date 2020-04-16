@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="SolutionWe use square root decomposition to solve this First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively. Let $V_{tin">
+  <meta name="description" content="SolutionWe use square root decomposition to solve this First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively. Let $V_{t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SACO 2015 Towers">
 <meta property="og:url" content="http://yoursite.com/2020/04/14/SACO-2015-Towers/index.html">
 <meta property="og:site_name" content="SACO Editorials">
-<meta property="og:description" content="SolutionWe use square root decomposition to solve this First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively. Let $V_{tin">
+<meta property="og:description" content="SolutionWe use square root decomposition to solve this First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively. Let $V_{t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-14T10:17:50.000Z">
-<meta property="article:modified_time" content="2020-04-14T10:42:38.694Z">
+<meta property="article:modified_time" content="2020-04-16T09:06:03.143Z">
 <meta property="article:author" content="Andi Qu">
 <meta property="article:tag" content="Square root decomposition">
 <meta property="article:tag" content="Trees">
@@ -193,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-04-14 12:17:50 / Modified: 12:42:38" itemprop="dateCreated datePublished" datetime="2020-04-14T12:17:50+02:00">2020-04-14</time>
+              <time title="Created: 2020-04-14 12:17:50" itemprop="dateCreated datePublished" datetime="2020-04-14T12:17:50+02:00">2020-04-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-16 11:06:03" itemprop="dateModified" datetime="2020-04-16T11:06:03+02:00">2020-04-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -222,7 +228,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this</p>
+        <a id="more"></a>
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>We use square root decomposition to solve this</p>
 <p>First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively.</p>
 <p>Let $V_{tin_i} = w_i$ and $V_{tout_i} = -w_i$. Notice how $\sum_{i = tin_x}^{tin_y} V_i = \text{Sum of } w_i \text{ on the path } x \rightarrow y$.</p>
 <p>Now, split the flattened tree up into $\sqrt{N}$ blocks of size $\sqrt{N}$. In each block, store the sum of $V_i$’s in that block and a map of how many times each $\sum_{j = 0}^i V_{\text{Block begin } + j}$ appears.</p>
