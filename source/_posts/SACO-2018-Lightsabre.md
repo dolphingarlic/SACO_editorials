@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 This is simply a rewording of the egg drop problem.
 
 We simply binary search for the point to cut and shrink the range.

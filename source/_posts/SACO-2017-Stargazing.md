@@ -14,6 +14,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 Firstly, a rhombus is inconvenient, so apply the transformation $(x, y) \rightarrow (x + y, x - y)$ to rotate everything by 45 degrees. Manhattan distance becomes Chebyshev distance and the query is on a square now.
 
 Next, notice for each star $i$, we only need to consider "critical stars". These are the 4 stars in each quadrant of star $i$'s query square that have lowest discovery time. This is because if those stars are connected to $i$, so is every other star in the 4 quadrants.

@@ -11,6 +11,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 This is just an ordinary BFS problem but each state also stores the number of dynamite sticks left.
 
 ## Complexity

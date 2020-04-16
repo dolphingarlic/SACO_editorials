@@ -11,6 +11,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 For each road, if you can reach $A$ from node 1 but not $B$, then you can build the highway.
 
 To keep track of connectivity, use DSU.

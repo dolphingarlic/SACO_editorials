@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 Let $r_l$ be the maximum right $x$-coordinate if the left $x$-coordinate of the stadium is $l$. Notice how $r_l \geq r_{l - 1}$, since we never shrink the stadium side by more than 1.
 
 This means that we can use 2 pointers and a line sweep to find the maximum valid $r - l$.

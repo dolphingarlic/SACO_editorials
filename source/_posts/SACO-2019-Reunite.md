@@ -12,6 +12,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 Simply find the minimum distance from each room to $A$ and $B$ respectively using a BFS. The room with the minimum $\max(\text{Dist to A}, \text{Dist to B})$ will be the answer.
 
 ## Complexity

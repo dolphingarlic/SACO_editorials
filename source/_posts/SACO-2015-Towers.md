@@ -12,6 +12,8 @@ categories:
 
 ## Solution
 
+<!-- more -->
+
 We use square root decomposition to solve this
 
 First, flatten the tree by doing an Euler tour. Let $tin_i$ and $tout_i$ be the times the DFS enters and exits node $i$ respectively.

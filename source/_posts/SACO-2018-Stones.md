@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 In this problem, we simply want to iterate until the minimum $i$ such that the sum of the number of stones in a rectangle with maximum Chebyshev distance $i$ satisfies the condition.
 
 Since we want to know the number of stones in a rectangle and each update is a point update, an ideal data structure to use for this problem is a 2d Fenwick tree.

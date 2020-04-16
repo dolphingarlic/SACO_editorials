@@ -12,6 +12,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 First, sort each ledge by height. Let $dp[i]$ be the number of ways to get to position $i$ after some moves.
 
 Clearly,

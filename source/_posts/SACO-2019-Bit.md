@@ -12,6 +12,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 We use square root decomposition to solve this problem.
 
 First, keep track of how many blocks are being scanned at the moment. Let this number be $k$.

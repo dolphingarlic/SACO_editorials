@@ -11,6 +11,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 First, find the factors of $N$.
 
 Next, notice that a solution is possible iff the upperbound of $B$ in the factors is greater or equal to the lowerbound of $A$ in the factors.

@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 This is a DP problem.
 
 Let $dp[i]$ be the minimum number of DNA strings we use to construct the word up to position $i$.

@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 Binary search for minimum X where (through the principle of inclusion-exclusion — add the count of all $t_i$ multiples in range, subtract the count of all pairwise LCM of $t_i$ multiples in range, add the count of all triplewise LCM of $t_i$ multiples in range etc.) we find exactly K divisible numbers.
 
 To efficiently find the LCMs, we use bitmask DP and preprocess the LCMs.

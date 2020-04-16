@@ -10,6 +10,8 @@ categories:
 
 ## Solution
 
+<!-- more -->
+
 Firstly, notice that we only care about the closest tower to each building. The answer is simply the maximum of the distances from each building to their closest tower.
 
 The closest tower can either be on the left or the right of the building. We can simply use the STL's `upper_bound` to find the 2 towers on either side of the building.

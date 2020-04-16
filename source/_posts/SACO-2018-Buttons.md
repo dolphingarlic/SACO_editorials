@@ -11,6 +11,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 Consider the problem in reverse:
 
 Instead of decreasing and multiplying $N$ by $A$, increase and divide $M$ by $A$.

@@ -13,6 +13,8 @@ mathjax: true
 
 ## Solution
 
+<!-- more -->
+
 We use DSU and a line sweep to solve this problem.
 
 Firstly, notice that we can form connected components from the platforms. The frog can reach any 2 platforms that are in the same component.
