@@ -5,9 +5,11 @@ tags:
     - Square root decomposition
     - Trees
     - DFS
+    - Data structure
 categories:
     - 2015
     - Round 3
+mathjax: true
 ---
 
 ## Solution

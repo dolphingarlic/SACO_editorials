@@ -5,6 +5,7 @@ tags:
     - DSU
     - Line sweep
     - Geometry
+    - Data structure
 categories:
     - 2019
     - Round 3

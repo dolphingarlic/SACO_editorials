@@ -3,6 +3,7 @@ title: SACO 2011 Highway Builders
 date: 2020-04-14 12:12:02
 tags:
     - DSU
+    - Data structure
 categories:
     - 2011
     - Round 3

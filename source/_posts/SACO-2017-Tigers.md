@@ -4,6 +4,7 @@ date: 2020-04-14 12:05:30
 tags:
     - Fenwick tree
     - DP
+    - Data structure
 categories:
     - 2017
     - Round 3

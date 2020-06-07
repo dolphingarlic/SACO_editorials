@@ -6,6 +6,7 @@ tags:
     - Geometry
     - DSU
     - Line sweep
+    - Data structure
 categories:
     - 2017
     - Round 3

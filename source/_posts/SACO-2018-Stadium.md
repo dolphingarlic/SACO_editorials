@@ -5,6 +5,7 @@ tags:
     - Geometry
     - 2 pointers
     - Line sweep
+    - Data structure
 categories:
     - 2018
     - Round 3

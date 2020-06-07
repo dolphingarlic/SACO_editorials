@@ -5,6 +5,7 @@ tags:
     - Fenwick tree
     - Brute force
     - Geometry
+    - Data structure
 categories:
     - 2018
     - Round 3

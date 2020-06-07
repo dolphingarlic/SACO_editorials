@@ -6,6 +6,7 @@ tags:
 categories:
     - 2017
     - Round 3
+mathjax: true
 ---
 
 ## Solution

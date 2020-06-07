@@ -5,6 +5,7 @@ tags:
     - DP
     - Trie
     - Strings
+    - Data structure
 categories:
     - 2019
     - Round 3

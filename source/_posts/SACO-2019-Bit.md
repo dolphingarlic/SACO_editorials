@@ -4,6 +4,7 @@ date: 2020-04-14 11:25:30
 tags:
     - Square root decomposition
     - Probabilities
+    - Data structure
 categories:
     - 2019
     - Round 3
